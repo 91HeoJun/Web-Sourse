@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+</head>
+<body>
+	<form action="register.jsp" method="post">
+		<fieldset>
+
+			<legend>필수사항</legend>
+			<div>
+				<input type="hidden" name="age" value="3" />
+			</div>
+
+
+			<div>
+
+				<label for="name">이름</label> <input type="text" name="name"
+					size="20" />
+
+			</div>
+			<div>
+				<label for="email">이메일</label> <input type="email" size="20" />
+			</div>
+			<div>
+
+				<label for="password">비밀번호</label> <input type="password" size="20" />
+
+			</div>
+		</fieldset>
+
+
+
+		<fieldset>
+			<legend>부가 입력 사항</legend>
+			<div>
+				<p>거주지를 선택해주세요</p>
+				<select name="" id="">
+					<option value="k">경기</option>
+					<option value="s" selected>서울</option>
+					<option value="i">인천</option>
+					<option value="jr">전라</option>
+					<option value="k">경상</option>
+					<option value="j">제주</option>
+				</select>
+
+			</div>
+			<div>
+
+				<label for="">취미</label> <input type="checkbox" name="hobby" id="">
+				여행 <input type="checkbox" name="hobby" id=""> 영화감상
+			</div>
+			<div>
+				<label for="">성별</label> <input type="radio" name"gender" id="">
+				남성 <input type="radio" name"gender" id=""> 여성
+			</div>
+			<div>
+
+				<label for="">사진을 등록해주세요</label> <input type="file" name="" id="">
+			</div>
+			<div>
+				<p>방문 경로를 말씀해주세요</p>
+				<textarea name="" id="" cols="30" rows="10"></textarea>
+
+			</div>
+		</fieldset>
+		<button type="submit">전송</button>
+	</form>
+</body>
+</html>
