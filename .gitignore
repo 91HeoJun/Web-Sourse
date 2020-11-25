@@ -107,4 +107,6 @@ target/
 Servers/
 WebContent/META-INF/MANIFEST.MF
 
+*/.gitignore
+
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java,java-web,code-java
