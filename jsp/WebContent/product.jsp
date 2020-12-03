@@ -3,9 +3,7 @@
     pageEncoding="UTF-8"%>
 <%
 	LoginDTO login = (LoginDTO)session.getAttribute("login");
-
-
-%>
+%>    
     
     
 <!DOCTYPE html>
@@ -15,11 +13,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>JSP TEST : <%=login.getUserid() %></h1>
-	
+
+	<h2>
+		<%=login.getUserid() %>님 반갑습니다.
+	</h2>
 	<div>
-		<a href="product.jsp">상품 페이지</a>
+		<input type="button" value="로그아웃" onclick="location.href='logout.jsp'" />
 	</div>
-	
+
 </body>
 </html>
