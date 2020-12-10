@@ -1,0 +1,15 @@
+-- bookTBL
+-- code 숫자 4자리 pk
+-- title 문자 한글 50자
+-- writer 문자 한글 20자
+-- price 숫자 8자
+
+CREATE TABLE bookTBL (code NUMBER(4) primary key, title NVARCHAR2(50) not null, writer NVARCHAR2(20) not null, price NUMBER(8) not null);
+
+insert into bookTBL values(1001, '이것이 자바다', '신용균', 28000);
+insert into bookTBL values(1002, '객체지향 이야기', '전병선', 30000);
+insert into bookTBL values(1003, '자바의 신', '강신용', 27000);
+insert into bookTBL values(1004, '자바 1000제', '김용만', 32000);
+insert into bookTBL values(1005, '오라클로 배우는 DB입문', '김진수', 20000);
+
+select * from bookTBL;
