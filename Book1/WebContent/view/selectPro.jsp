@@ -7,9 +7,9 @@
 	// 도서목록보기 메뉴를 클릭하면 보여줄 내용 처리
 	BookDAO dao = new BookDAO();
 	List<BookVO> list = dao.getList();
-	for(BookVO vo:list){
-		System.out.println(vo);
-	}
 	
+	// Scope => (request + forward), session
+	request.setAttribute("list", list);
+	pageContext.forward("../select.jsp");
 
 %>

@@ -13,7 +13,6 @@
 	UserDAO dao = new UserDAO();
 	UserVO vo =  dao.getUser(no);
 	
-
 %>
 
 <%@include file = "header.jsp" %>

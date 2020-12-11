@@ -59,7 +59,7 @@ public class BookDAO {
 			}
 		}
 		return result;
-	}
+	} // insert 종료
 	
 	// 전체조회
 	public List<BookVO> getList(){
@@ -102,5 +102,33 @@ public class BookDAO {
 		return list;
 
 		
+	} // 전체조회 종료
+	
+	// delete form BookTBL where code = ?
+	public int bookDelete(int code) {
+		Connection con = getConnection();
+		PreparedStatement pstmt = null;
+		int result = 0;
+				
+		try {
+			if(con != null) {
+				String sql = "delete form BookTBL where code = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, code);
+				result = pstmt.executeUpdate();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				con.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return result;
 	}
+	
 }
