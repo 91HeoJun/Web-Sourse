@@ -1,35 +1,25 @@
 package member;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 public class MemberDAO {
 	
-	// 드라이버 로드
-	static {
-		try {
-			Class.forName("oracle.jdbc.OracleDriver");
-
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-
 	public Connection getConnection() {
+		Connection con = null;
 		try {
-			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-			String user = "javaDB";
-			String password = "12345";
-			return DriverManager.getConnection(url, user, password);
-
-		} catch (SQLException e) {
+			Context ctx = new InitialContext();
+			DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/Oracle");
+			con = ds.getConnection();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// 실패 시 리턴 값
-		return null;
+		return con;
 	}
 
 	// 로그인 => userid, password가 일치해야 함

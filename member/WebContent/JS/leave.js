@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+
+
+$(function(){
+	$("#leaveform").click()
+	
+	
+	
+})
