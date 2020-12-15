@@ -17,7 +17,7 @@
 
 <div class="row">
   <div class="col-3">
-    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <div class="nav flex-column nav-pills" id="myMenu" role="tablist" aria-orientation="vertical">
       <a class="nav-link active" id="" data-toggle="pill" href="#insert" role="tab" aria-controls="v-pills-home" aria-selected="true">도서 정보 입력</a>
       <a class="nav-link" id="" data-toggle="pill" href="#all" role="tab" aria-controls="v-pills-profile" aria-selected="false">도서 목록 보기</a>
       <a class="nav-link" id="" data-toggle="pill" href="#delete" role="tab" aria-controls="v-pills-messages" aria-selected="false">도서 정보 삭제</a>
@@ -29,7 +29,7 @@
     <div class="tab-content" id="v-pills-tabContent">
       <div class="tab-pane fade show active" id="insert" role="tabpanel" aria-labelledby="v-pills-home-tab"><jsp:include page="view/insert.jsp"></jsp:include></div>
       <div class="tab-pane fade" id="delete" role="tabpanel" aria-labelledby="v-pills-messages-tab"><jsp:include page="view/delete.jsp"></jsp:include></div>
-      <div class="tab-pane fade" id="search" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+      <div class="tab-pane fade" id="search" role="tabpanel" aria-labelledby="v-pills-settings-tab"><jsp:include page="view/search.jsp"></jsp:include></div>
       <div class="tab-pane fade" id="modify" role="tabpanel" aria-labelledby="v-pills-settings-tab"><jsp:include page="view/modify.jsp"></jsp:include></div>
     </div>
   </div>

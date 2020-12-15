@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 	<h4>수정할 도서 정보를 입력해 주세요</h4>    
-<form action="">
+<form action="/Book1/view/modifyPro.jsp" method="post">
 	<div class="form-group">
 		<label for="code">Code</label>
 		<input type="text" class="form-control" name="code" id="code" required />

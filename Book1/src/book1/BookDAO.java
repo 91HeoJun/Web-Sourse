@@ -112,7 +112,7 @@ public class BookDAO {
 				
 		try {
 			if(con != null) {
-				String sql = "delete form BookTBL where code = ?";
+				String sql = "delete from BookTBL where code = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, code);
 				result = pstmt.executeUpdate();
@@ -129,6 +129,83 @@ public class BookDAO {
 			}
 		}
 		return result;
+	} // delete 종료
+	
+	public int bookUpdate(int price, int code) {
+		// update BookTBL set price=? where code=?
+		Connection con = getConnection();
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		try {
+			if(con != null) {
+				String sql = "update BookTBL set price=? where code=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, price);
+				pstmt.setInt(2, code);
+				result = pstmt.executeUpdate();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				con.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return result;
+	} // Update 종료
+	
+	public List<BookVO> bookSearch(String criteria, String keyword) {
+		// 코드 2001 검색하기 / 작가 홍길동 검색
+		// select * from bookTBL where code(int) / writer(String) = ? -> 필드명은 무조건 기입해야함!!
+		// String sql = "select * from bookTBL where " + criteria + "= ?";
+		
+		Connection con = getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql ="";
+		List<BookVO> list = new ArrayList<BookVO>();
+		
+		try {
+			if(con != null) {
+					if(criteria.equals("writer")) {
+						sql = "select * from bookTBL where writer = ?";
+						pstmt = con.prepareStatement(sql);
+						pstmt.setString(1, keyword);
+				
+					}else {
+						sql = "select * from bookTBL where code = ?";
+						pstmt = con.prepareStatement(sql);
+						pstmt.setInt(1, Integer.parseInt(keyword));
+					}
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					BookVO vo = new BookVO();
+					vo.setCode(rs.getInt("code"));
+					vo.setTitle(rs.getString("title"));
+					vo.setWriter(rs.getString("writer"));
+					vo.setPrice(rs.getInt("price"));
+					list.add(vo);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+				con.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	return list;
+
 	}
 	
 }

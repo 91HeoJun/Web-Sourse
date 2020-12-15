@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<form action="view/insertPro.jsp" method="post">
+<form action="/Book1/view/insertPro.jsp" method="post">
 	<div class="form-group">
 		<label for="code">Code</label>
 		<input type="text" class="form-control" name="code" id="code" required />

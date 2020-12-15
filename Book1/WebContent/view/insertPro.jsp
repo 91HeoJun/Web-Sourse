@@ -16,9 +16,11 @@
 	int result = dao.bookInsert(code, title, writer, price);
 	
 	//결과에 따라 페이지 이동
-	if(result > 0){
+	if(result == 0){
 		// 성공하면 인덱스
-		response.sendRedirect("../index.jsp");
+		response.sendRedirect("../index.jsp?tab=insert");
+	} else {
+		response.sendRedirect("selectPro.jsp");
 	}
 	
 %>
