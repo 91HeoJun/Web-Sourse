@@ -5,7 +5,10 @@
     pageEncoding="UTF-8"%>
 
 <%@include file = "header.jsp" %>
-<!-- <jsp:include page=""></jsp:include> -->
+
+	<%
+		List<UserVO> list = (List<UserVO>)request.getAttribute("list");
+	%>
 
 <div class="container">
 	<table class="table table-dark">
@@ -20,17 +23,11 @@
   </thead>
   <tbody>
 	<%
-		UserDAO dao = new UserDAO();
-		List<UserVO> list = dao.select();
-		
 		for(UserVO vo:list){
-			// list를 UserVO 형태로 vo란 이름으로 불러옴
-			// 향상된 for문 : for(데이터타입 변수명:배열명)
-		
 	%>
 		<tr>
 			<td><%=vo.getNo() %></td>
-			<td><a href="select.jsp?no=<%=vo.getNo()%>"><%=vo.getUsername() %></a></td>
+			<td><a href="select.do?no=<%=vo.getNo()%>"><%=vo.getUsername() %></a></td>
 			<td><%=vo.getBirthyear() %></td>
 			<td><%=vo.getAddr() %></td>
 			<td><%=vo.getMobile() %></td>

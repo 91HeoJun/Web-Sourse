@@ -10,52 +10,46 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.ActionForward;
+import action.Actionforward;
 
 /**
- * Servlet implementation class FrontContrller
+ * Servlet implementation class UserFrontController
  */
-@WebServlet("*.do") // select.do, insert.do, modify.do ~~ 전부 다 받음
-public class FrontContrller extends HttpServlet {
+@WebServlet("*.do")
+public class UserFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// http://localhost:8080/pattern/update.do
-		// http://localhost:8080/pattern/select.do
-		// http://localhost:8080/pattern/delete.do
-		// http://localhost:8080/pattern/insert.do
-		
 		request.setCharacterEncoding("utf-8");
+		// 어디서 왔는지, 어디로 보낼껀지
+		String requestURI = request.getRequestURI();
+		String contextPath = request.getContextPath();
+		String cmd =  requestURI.substring(contextPath.length());
 		
-		String requestURI = request.getRequestURI();			 // 결과 -> /pattern/update.do
-		String contextPath = request.getContextPath(); 			 // 결과 -> /pattern
-		String cmd = requestURI.substring(contextPath.length()); // 결과 -> /update.do
-		
-		ActionFactory factory = ActionFactory.getInstance();
+		// 요청에 맞는 Action 생성하기 => UserActionFactory
+		UserActionFactory factory = UserActionFactory.getInstance();
 		Action action = factory.action(cmd);
-
 		
-		ActionForward af = null;
-		
+		// 생성된 action에게 일 시키기
+		Actionforward af = null;
 		try {
 			af = action.execute(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		if (af.isRedirect()) { // true => sendRedirect
+		// 이동 방식에 따라 페이지 이동
+		if (af.isRedirect()) { // sendRedirect(true)
 			response.sendRedirect(af.getPath());
-		} else { // false => forward
+		} else { // forward(false)
 			RequestDispatcher rd = request.getRequestDispatcher(af.getPath());
 			rd.forward(request, response);
 		}
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		doGet(request, response);
 	}
 

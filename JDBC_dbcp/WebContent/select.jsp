@@ -1,5 +1,5 @@
-<%@page import="jdbc.UserVO"%>
-<%@page import="jdbc.UserDAO"%>
+<%@page import="domain.UserVO"%>
+<%@page import="persistence.UserDAO"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>

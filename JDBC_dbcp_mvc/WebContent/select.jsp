@@ -7,12 +7,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	request.setCharacterEncoding("utf-8");
-	String no = request.getParameter("no");
-	
-	UserDAO dao = new UserDAO();
-	UserVO vo =  dao.getUser(no);
-	
+
+	UserVO vo = (UserVO)request.getAttribute("vo");
+
 %>
 
 <%@include file = "header.jsp" %>
@@ -42,7 +39,7 @@
 		let form = $("form");
 	//수정버튼 누르면 update.jsp로 이동
 	$(".btn-dark").click(function () {
-		$("form").attr("action", "update.jsp");
+		$("form").attr("action", "update.do");
 		$("form").submit();
 	});
 	

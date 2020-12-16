@@ -1,6 +1,6 @@
-<%@page import="jdbc.UserVO"%>
+<%@page import="domain.UserVO"%>
 <%@page import="java.util.List"%>
-<%@page import="jdbc.UserDAO"%>
+<%@page import="persistence.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
