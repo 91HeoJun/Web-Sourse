@@ -6,9 +6,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-
 	UserVO vo = (UserVO)request.getAttribute("vo");
-	
 %>
     
 <!DOCTYPE html>
@@ -24,7 +22,7 @@
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
   <a class="navbar-brand" href="#">JDBC</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -49,7 +47,7 @@
 </nav> <!--  nav 종료 -->
 
 <div class="container">
-<form action="updatePro.jsp" method="post">
+<form action="modify.do" method="post">
   <div class="form-group">
     <label for="username">번호</label>
     <input type="text" class="form-control" name="no" id="no" autofocus value="<%=vo.getNo() %>" readonly>
@@ -62,14 +60,15 @@
     <label for="birthyear">태어난 연도</label>
     <input type="text" class="form-control" name="birthyear" id="birthyear" value="<%=vo.getBirthyear() %>" readonly>
   </div>
-   <div class="form-group">
+  <div class="form-group">
     <label for="addr">주소</label>
     <input type="text" class="form-control" name="addr" id="addr" placeholder="변경할 주소를 입력하세요">
   </div>
-   <div class="form-group">
+  <div class="form-group">
     <label for="mobile">휴대폰 번호</label>
     <input type="text" class="form-control" name="mobile" id="mobile" placeholder="휴대폰 번호를 입력하세요">
   </div>
+
 <button type="submit" class="btn btn-dark">수정</button>
 <button type="button" class="btn btn-light">취소</button>
 

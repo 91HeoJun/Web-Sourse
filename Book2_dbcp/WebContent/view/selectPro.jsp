@@ -1,6 +1,6 @@
-<%@page import="book1.BookVO"%>
+<%@page import="domain.BookVO"%>
 <%@page import="java.util.List"%>
-<%@page import="book1.BookDAO"%>
+<%@page import="persistence.BookDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%

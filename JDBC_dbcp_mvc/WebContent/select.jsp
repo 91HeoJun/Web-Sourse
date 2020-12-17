@@ -29,14 +29,11 @@
 
 </form>
 </div>
-<%	
 
-
-	 %>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script>
-	$(function () {
-		let form = $("form");
+$(function () {
+	let form = $("form");
 	//수정버튼 누르면 update.jsp로 이동
 	$(".btn-dark").click(function () {
 		$("form").attr("action", "update.do");
@@ -45,7 +42,7 @@
 	
 	//삭제버튼 누르면 deletePro.jsp로 이동
 	$(".btn-danger").click(function () {
-		$("form").attr("action", "deletePro.jsp");
+		$("form").attr("action", "delete.do");
 		$("form").submit();
 	});
 });

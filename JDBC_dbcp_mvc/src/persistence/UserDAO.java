@@ -24,15 +24,12 @@ public class UserDAO {
 	// 3. CRUD
 	// insert
 	public int inset(String username, String birthyear, String addr, String mobile) {
-
 		int result = 0;
 
 		try {
 			if (con != null) {
 				// 4. sql 구문 생성
 				String sql = "insert into userTBL values(userTBL_seq.nextval,?,?,?,?)";
-
-				/* ****************** String 안에 공백 넣을땐 제발 주의!!!!!!!!! *************** */
 
 				// 5. statement 생성 후 전송
 				pstmt = con.prepareStatement(sql);

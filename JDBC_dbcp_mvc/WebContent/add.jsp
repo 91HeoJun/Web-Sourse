@@ -70,38 +70,6 @@ $(function () {
 	});
 	
 }); 
-
-/* $(function() {
-    $(".btn.btn-primary").click(function() {
-       let regName = /^[가-힣]{2,4}$/;
-       let regBirthyear = /^\d{4}$/;
-       let regAddr = /^[가-힣A-Za-z]{2}$/;
-       let regMobile = /^\d{2,3}-\d{3,4}-\d{4}$/;
-       
-       if (!regName.test($("#username").val())) {
-          alert("이름을 확인해주세요");
-          $("#username").focus();
-          return false;
-       }
-       if (!regBirthyear.test($("#birthyear").val())) {
-          $("#birthyear").focus();
-          alert("생년월일을 확인해주세요");
-          return false;
-       }
-       if (!regAddr.test($("#addr").val())) {
-          $("#addr").focus();
-          alert("주소을 확인해주세요");
-          return false;
-       }
-       if (!regMobile.test($("#mobile").val())) {
-          $("#mobile").focus();
-          alert("전화번호를 확인해주세요");
-          return false;
-       }
-    });
- }); */
-
-
 </script>
 </body>
 </html>

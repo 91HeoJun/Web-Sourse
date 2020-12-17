@@ -19,7 +19,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean insertUser(String username, String birthyear, String addr, String mobile) {
-
 		int result = dao.inset(username, birthyear, addr, mobile);
 
 		// DB작업 결과를 action에게 보내기 - commit, rollback
@@ -37,13 +36,33 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean updateUser(String addr, String mobile, int no) {
+		int result = dao.updateUser(addr, mobile, no);
 		
-		return false;
+		boolean updateFlag = false;
+		
+		if (result > 0) {
+			updateFlag = true;
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		close(con);
+		return updateFlag;
 	}
 
 	@Override
 	public boolean deleteUser(int no) {
-		return false;
+		boolean deleteFlag = false;
+		int result = dao.deleteUser(no);
+		
+		if (result > 0) {
+			deleteFlag = true;
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		close(con);
+		return deleteFlag;
 	}
 
 	@Override

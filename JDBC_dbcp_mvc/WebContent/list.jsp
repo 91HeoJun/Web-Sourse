@@ -32,10 +32,8 @@
 			<td><%=vo.getAddr() %></td>
 			<td><%=vo.getMobile() %></td>
 		</tr>
-	
 	<%
-	}
-	
+		}
 	%> 
   </tbody>
 </table>

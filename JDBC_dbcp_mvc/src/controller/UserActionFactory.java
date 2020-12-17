@@ -1,8 +1,10 @@
 package controller;
 
 import action.Action;
+import action.UserDeleteAction;
 import action.UserInsertAction;
 import action.UserListAction;
+import action.UserModifyAction;
 import action.UserSelectAction;
 import action.UserUpdateAction;
 
@@ -28,6 +30,12 @@ public class UserActionFactory {
 		
 		} else if(cmd.equals("/update.do")) {
 			action = new UserUpdateAction("update.jsp");
+
+		} else if(cmd.equals("/modify.do")) {
+			action = new UserModifyAction("list.do");
+		
+		} else if(cmd.equals("/delete.do")) {
+			action = new UserDeleteAction("list.do");
 		}
 		
 		return action;
