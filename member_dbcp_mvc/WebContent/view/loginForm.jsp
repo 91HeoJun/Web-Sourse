@@ -1,14 +1,18 @@
 <%@page import="domain.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ include file="../layout/header.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%
 	//session 영역에 담긴 값 가져오기
-	MemberVO member = (MemberVO)session.getAttribute("login");
+	//MemberVO member = (MemberVO)session.getAttribute("login");
 
-	if(member == null){
+	//if(member == null){
 	
 %>
+<c:if test="${empty login}">
 
+ 
 <form class="form-signin" name="loginform" action="../login.do" method="post">
   <div class="form-label-group">
     <input type="text" id="userid" name="userid" class="form-control" placeholder="id" required autofocus>
@@ -28,16 +32,19 @@
   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
   <p class="mt-5 mb-3 text-muted text-center">&copy; 2019</p>
 </form>
+</c:if>
 
-<%	} else { //로그인 성공 %>
+<c:if test="${!empty login}">
+<%//	} else { //로그인 성공 %>
 
 	<script>
-		var name = '<%=member.getName()%>';
+		var name = '${login.name}';
 	</script>
 	<script src="../JS/menu.js"></script>
 	
+	</c:if>
 <%	
-	}
+	// }
 %>
 
 <script src="../JS/commend.js"></script>

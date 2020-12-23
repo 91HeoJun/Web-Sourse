@@ -7,9 +7,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-
-	UserVO vo = (UserVO)request.getAttribute("vo");
-
+	//UserVO vo = (UserVO)request.getAttribute("vo");
 %>
 
 <%@include file = "header.jsp" %>
@@ -18,11 +16,11 @@
 <form action="" method="post">
   <div class="form-group">
     <label for="username">번호</label>
-    <input type="text" class="form-control" name="no" id="no" autofocus readonly value="<%=vo.getNo()%>">
+    <input type="text" class="form-control" name="no" id="no" autofocus readonly value="${vo.no}">
   </div>
   <div class="form-group">
     <label for="username">이름</label>
-    <input type="text" class="form-control" name="username" id="username" readonly value="<%=vo.getUsername()%>">
+    <input type="text" class="form-control" name="username" id="username" readonly value="${vo.username}">
   </div>
 <button type="button" class="btn btn-dark">수정</button>
 <button type="button" class="btn btn-danger">삭제</button>

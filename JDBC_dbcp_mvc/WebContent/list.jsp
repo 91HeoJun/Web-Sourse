@@ -5,9 +5,9 @@
     pageEncoding="UTF-8"%>
 
 <%@include file = "header.jsp" %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<%
-		List<UserVO> list = (List<UserVO>)request.getAttribute("list");
+		//List<UserVO> list = (List<UserVO>)request.getAttribute("list");
 	%>
 
 <div class="container">
@@ -22,19 +22,22 @@
     </tr>
   </thead>
   <tbody>
+  
+    <c:forEach var="vo" items="${list}">
 	<%
-		for(UserVO vo:list){
+		//for(UserVO vo:list){
 	%>
 		<tr>
-			<td><%=vo.getNo() %></td>
-			<td><a href="select.do?no=<%=vo.getNo()%>"><%=vo.getUsername() %></a></td>
-			<td><%=vo.getBirthyear() %></td>
-			<td><%=vo.getAddr() %></td>
-			<td><%=vo.getMobile() %></td>
+			<td>${vo.no}</td>
+			<td><a href="select.do?no=${vo.no}">${vo.username}</a></td>
+			<td>${vo.birthyear}</td>
+			<td>${vo.addr}</td>
+			<td>${vo.mobile}</td>
 		</tr>
 	<%
-		}
+		//}
 	%> 
+	</c:forEach>
   </tbody>
 </table>
 

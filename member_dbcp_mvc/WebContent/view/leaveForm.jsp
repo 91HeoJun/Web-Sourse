@@ -2,9 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp" %>
+
+
 <%
 	//세션 가져오기 - 필요한 요소가 있을경우 상단에서 세션 불러와서 쓰기
-	MemberVO member = (MemberVO)session.getAttribute("login");
+	//MemberVO member = (MemberVO)session.getAttribute("login");
 %>
 
 <form id="leaveform" action="../leave.do" method="post">
@@ -15,7 +17,7 @@
 	 	<div class="card-body">	
 			<div class="form-group row justify-content-center">		
 				<div class="col-sm-10">	
-					<input type="text" name="userid" id="userid" class="form-control" value="<%=member.getUserid() %>" readonly/>
+					<input type="text" name="userid" id="userid" class="form-control" value="${login.userid}" readonly/>
 			 		<small id="userid" class="text-info"></small>		
 				</div>
 			</div>	
