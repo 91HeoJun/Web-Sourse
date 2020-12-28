@@ -66,6 +66,9 @@
 			
 			<!-- update에서 map에 담은 bno 추적을 위한 히든타입 인풋 -->
 			<input type="hidden" name="bno" value="${vo.bno}"/>
+			<input type="hidden" name="page" value="${searchVO.page}" />
+			<input type="hidden" name="criteria" value="${searchVO.criteria}" />
+			<input type="hidden" name="keyword" value="${searchVO.keyword}" />
 			
 		</form>
 	</div>

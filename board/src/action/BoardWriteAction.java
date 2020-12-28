@@ -42,6 +42,10 @@ public class BoardWriteAction implements Action {
 		
 		if (!flag) {
 			path = "view/qna_board_write.jsp";
+			
+		} else {
+			// 작성 성공 시 DAO에서 isEmpty를 걸었으므로 그냥 qWrite.do로 보낼 시 nullPoint가 뜸. 따로 불러올 내용은 없으므로, page를 1로 보내고 criteria, keyword는 비워서 처리할 것.
+			path += "?page=1&criteria=&keyword=";
 		}
 		
 		return new ActionForward(path, true);

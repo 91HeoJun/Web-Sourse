@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body onload="gethtml()">
+	<div class="container">
+		<ul>
+			<li>메뉴 1</li>
+			<li>메뉴 2</li>
+			<li>메뉴 3</li>
+			<li>메뉴 4</li>
+		</ul>
+	</div>
+	<div></div>
+<script>
+function gethtml(){
+	// 비동기식 => Ajax
+	// 1. XMLHttpRequest 객체 생성 
+	let httpRequest = new XMLHttpRequest();
+	
+	// 2. 서버에 보낼 요청 작성
+	httpRequest.open("get", "../data/data.html");
+
+	// 3. 요청 보내기
+	httpRequest.send(null);
+	
+	// 4. 서버의 응답에 따른 처리
+	httpRequest.onreadystatechange = function(){
+		if(httpRequest.readyState == 4) {
+			if(httpRequest.status == 200) {
+				var div = document.querySelector("div:last-of-type");
+				div.innerHTML = httpRequest.responseText;
+			}
+		}	
+	}
+}
+
+
+</script>
+
+</body>
+</html>

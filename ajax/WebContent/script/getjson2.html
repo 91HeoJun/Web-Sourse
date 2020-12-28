@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.container {
+		display : flex;
+		background : lightblue;
+	}
+	.box {
+		width : 100px;
+		height : 50px;
+		display : flex;
+		justify-content : center;
+		align-items : center;
+	}
+</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="box">메뉴1</div>
+		<div class="box">메뉴2</div>
+		<div class="box">메뉴3</div>
+		<div class="box">메뉴4</div>
+	</div>	
+	<div id="content"></div>
+
+<script>
+	let div = document.querySelector(".container .box:last-child").addEventListener('click', makeRequest);
+	
+	let httpRequest = new XMLHttpRequest();
+
+	function makeRequest(){
+		httpRequest.open("get", "../data/version2.json");
+		httpRequest.send(); //send(null) or send() => get 방식일 떄
+		httpRequest.onreadystatechange = getJson;
+	}
+
+	function getJson(){
+		// 응답할 영역 가져오기
+		let content = document.querySelector("#content");
+		if(httpRequest.readyState == 4){
+			if(httpRequest.status == 200){
+				console.log(httpRequest.responseText);
+				
+				// JSON.parse() : JSON 문자열 분해
+				let res = JSON.parse(httpRequest.responseText);
+				
+				let result = "<ul>";
+				res.forEach(function(item){
+					result += "<li>version : "+item.version+"</li>";
+					result += "<li>codename : " +item.codename+"</li>";
+					result += "<hr>"
+				})
+				content.innerHTML = result+"</ul>";
+				
+			} else {
+				content.innerHTML = "데이터 없음";
+			}
+		}
+	}
+</script>
+</body>
+</html>

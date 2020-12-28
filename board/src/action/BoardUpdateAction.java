@@ -1,5 +1,6 @@
 package action;
 
+import java.net.URLEncoder;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,15 +32,19 @@ public class BoardUpdateAction implements Action {
 		if (map.containsKey("attach"))
 			vo.setAttach(map.get("attach"));
  
+		String page = map.get("page");
+		String criteria = map.get("criteria");
+		String keyword = URLEncoder.encode(map.get("keyword"), "utf-8");
+		
 		// service 호출
 		BoardService service = new BoardServiceImpl();
 		boolean flag = service.updateArticle(vo);
 
 		if (!flag) { // 실패
-			path = "qModify.do?bno="+map.get("bno");
+			path = "qModify.do?bno="+map.get("bno")+"&page="+page+"&criteria="+criteria+"&keyword="+keyword;
 			
 		} else { // 성공
-			path += "?bno="+map.get("bno");
+			path += "?bno="+map.get("bno")+"&page="+page+"&criteria="+criteria+"&keyword="+keyword;
 		}
 		return new ActionForward(path, true);
 	}

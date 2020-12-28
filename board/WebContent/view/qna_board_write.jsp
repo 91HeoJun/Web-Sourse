@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> <%@include file="../include/header.jsp"%>
+
+<%
+	String page1 = request.getParameter("page");
+	String criteria = request.getParameter("criteria");
+	String keyword = request.getParameter("keyword");
+%>
+
 <!-- Main content -->
 <section class="content">
   <div class="box box-primary">
@@ -75,7 +82,7 @@ pageEncoding="UTF-8"%> <%@include file="../include/header.jsp"%>
         <div class="form-group text-center">
           <button type="submit" class="btn btn-primary">등록</button>
           <button type="reset" class="btn btn-danger">다시작성</button>
-          <button type="button" class="btn btn-warning" id="list" onclick="location.href='../qList.do'">
+          <button type="button" class="btn btn-warning" id="list" onclick="location.href='../qList.do?page=<%=page1 %>&criteria=<%=criteria %>&keyword=<%=keyword %>'">
           <!-- 자바스크립트 [ onclick="location.href='../qList.do' ] == 제이쿼리 [] -->
             목록보기
           </button>

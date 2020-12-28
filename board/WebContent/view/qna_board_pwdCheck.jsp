@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../include/header.jsp"%>
+
+<%
+	request.setCharacterEncoding("utf-8");
+
+%>
+
 <!-- Main content -->
 <section class="content">
 	<div class="box box-primary">
@@ -18,6 +24,10 @@
 				</div>
 			</div>
 			<input type="hidden" name="bno" value='<%=request.getParameter("bno") %>' />
+			<input type="hidden" name="page" value='<%=request.getParameter("page") %>' />
+			<input type="hidden" name="criteria" value='<%=request.getParameter("criteria") %>' />
+			<input type="hidden" name="keyword" value='<%=request.getParameter("keyword") %>' />
+			
 		</form>
 	</div>
 </section>

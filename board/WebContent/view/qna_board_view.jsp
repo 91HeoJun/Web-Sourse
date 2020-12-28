@@ -62,6 +62,9 @@
 
 <form action="" method="post" role="form">
 	<input type="hidden" name="bno" value="${vo.bno}" />
+	<input type="hidden" name="page" value="${searchVO.page}" />
+	<input type="hidden" name="criteria" value="${searchVO.criteria}" />
+	<input type="hidden" name="keyword" value="${searchVO.keyword}" />
 </form>
 
 <script>
@@ -87,7 +90,8 @@ $(function(){
 	})
 	
 	$("#list").click(function(){
-		location.href = 'qList.do';
+		formObj.attr('action', 'qList.do');
+		formObj.submit();
 	})
 })
 </script>
