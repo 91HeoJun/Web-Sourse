@@ -112,4 +112,27 @@ public class MemberDAO {
 		}
 		return result;
 	} // isTerminate 종료
+	
+	public boolean checkID(String userid) {
+		boolean result = false;
+		
+		String sql = "select userid from member where userid=?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, userid);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				result = true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+				close(rs);
+				close(pstmt);
+		}
+		return result;
+	}
 }

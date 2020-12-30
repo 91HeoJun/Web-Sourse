@@ -9,6 +9,8 @@ public interface MemberService {
 	public boolean isjoin(MemberVO member);
 	public boolean ismodify(String password, String userid);
 	public boolean isTerminate(String userid, String password);
-
+	
+	// 중복확인
+	public boolean isCheck(String userid);
 	
 }

@@ -5,6 +5,7 @@ import action.MemberJoinAction;
 import action.MemberLeaveAction;
 import action.MemberLoginAction;
 import action.MemberModifyAction;
+import action.MemeberCheckIdAction;
 
 public class MemberActionFactory {
 
@@ -28,8 +29,12 @@ public class MemberActionFactory {
 		
 		} else if(cmd.equals("/leave.do")) {
 			action = new MemberLeaveAction("index.jsp");
+			
 		} else if(cmd.equals("/join.do")) {
 			action = new MemberJoinAction("view/loginForm.jsp");
+			
+		} else if(cmd.equals("/checkID.do")) {
+			action = new MemeberCheckIdAction("view/checkID.jsp");
 		}
 		
 		

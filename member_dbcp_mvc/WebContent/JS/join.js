@@ -7,7 +7,16 @@ $(function(){
 		rules:{
 			userid:{ // 5-12자리, 영어 대소문자, 숫자, 특수문자 허용
                 required : true,
-                validID : true
+                validID : true,
+				remote:{
+					url:"../checkID.do",
+					type:"post",
+					data:{
+						userid:function(){
+							return $("#userid").val();
+						}
+					}
+				}
 			},
 			
 			password:{ // 8-15자리, 영어 대소문자, 숫자, 특수문자 허용
@@ -35,7 +44,8 @@ $(function(){
 		
 		messages:{
 			userid:{
-				required : "아이디는 필수 속성입니다."
+				required : "아이디는 필수 속성입니다.",
+				remote : "아이디 사용 불가"
 			},
 			password:{
 				required : "비밀번호는 필수 속성입니다."

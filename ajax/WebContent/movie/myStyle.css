@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+	body{
+		margin:20px;
+	}
+	.box1{
+		width:400px;
+		background-color:green;
+		color:white;
+		padding:15px;
+		text-align:center;
+	}
+	.box2{
+		width:400px;
+		display:block;
+		margin-top:15px;
+		text-align:center;
+	}
+	#msg{
+		border-radius:5px;
+		border:2px solid #73ad21;
+		padding:10px;
+		padding-left:20px;
+		margin-top:15px;
+		width:400px;
+		height:200px;
+		font-size:14px;
+		text-align: left;
+	}
